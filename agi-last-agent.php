@@ -1,8 +1,5 @@
 #!/usr/bin/php -q
 <?php
-$mysql_username=''
-$mysql_password=''
-$mysql_host='localhost'
 
 
   require('phpagi.php');
@@ -13,7 +10,7 @@ $mysql_host='localhost'
 	$cid = $agi->get_variable("CALLERID(num)");
 	$cid = $cid['data'];
 	
-  	$con = mysql_connect($mysql_host,$mysql_username,$mysql_password);
+  	$con = mysql_connect("localhost","root","Alcatel@2019");
 		if (!$con)
 		{
 		$agi->Verbose('NOT CONNECTED ***');
@@ -63,6 +60,9 @@ $mysql_host='localhost'
 				//$agi->exec_goto('from-internal-additional', '600', '1');	
 			//}
 
+		}
+		else{
+			$agi->exec_goto('from-internal-additional', '901', '1');
 		}
 			}
 		}
